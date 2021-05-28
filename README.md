@@ -17,10 +17,10 @@ This is a sample program including comparable procedures that implement an algor
 ## Expected outputs
 
 ### C11
-![C11](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapLiteC11.png?raw=true)
+![C11](https://github.com/federico-navarro/ClarionMultiLanguage/tree/main/Captures/KnapLiteC11.png?raw=true)
 
 ### C5
-![C5](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapLiteC5.png?raw=true)
+![C5](https://github.com/federico-navarro/ClarionMultiLanguage/tree/main/Captures/KnapLiteC5.png?raw=true)
 
 ### C3
-![C3](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapLiteC3.png?raw=true)
+![C3](https://github.com/federico-navarro/ClarionMultiLanguage/tree/main/Captures/KnapLiteC3.png?raw=true)
