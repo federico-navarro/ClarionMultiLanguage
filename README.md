@@ -24,3 +24,27 @@ This is a sample program including comparable procedures that implement an algor
 
 ### C3
 ![C3](https://github.com/federico-navarro/ClarionMultiLanguage/blob/main/Captures/KnapLiteC3.png?raw=true)
+
+
+# KnapSack project
+Includes KnapLite and provides a user interface to automate tests
+
+### Additionally to the features mentioned for KnapLite project, this project shows and serves as:
+
+- a user interface to show current and historic results
+- a sample data generator with different methods, random, delta intervals, sorting and shuffling and manual editing
+- preloaded data with previous results and provides other test data sets
+- a benchmarking tool for the different algorithms
+- a portable benchmarking tool for different computers with shareable results through its data files
+- a RAM memory consumer and CPU stressing tool for hardware testing
+- a simulation of invoices amounts stored on integer fields, e.g., previously multiplied by 100 to have 2 decimal precision
+- shows the exponential behavior of the algorithm as the data and amount grow
+- an appgen project for C10 and C11 (with auto conversion) and txa/txd files for previous versions
+
+## Sample outputs
+
+### KnapSack Console with Lite project values
+![LiteValues](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapSackLiteValues.png?raw=true)
+
+### KnapSack Console with large values
+![Large](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapSackLarge.png?raw=true)
