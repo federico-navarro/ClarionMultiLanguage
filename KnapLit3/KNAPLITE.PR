@@ -1,0 +1,13 @@
+#system auto exe
+#model xlarge
+
+#pragma data(stack_size=>24576,threshold=>4096)
+#pragma optimize(cpu=>286)
+#pragma debug(vid=>full)
+#pragma link_option(map=>on,case=>on)
+#compile knaplite.cla
+#compile knapcla.cla
+#compile knapasm.a
+#pragma link(knapc.obj)
+#compile knapmod.mod
+#link knaplite

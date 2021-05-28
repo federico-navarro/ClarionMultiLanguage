@@ -1,0 +1,130 @@
+
+  PROGRAM
+
+!KnapLite: KnapSack without UI and Clarion malloc version only
+!v1.0 2021-04-11 by Federico Navarro: resimplification of previously made project
+
+  MAP
+    MODULE('KnapCla.cla')
+      FindInvoicesClarion  (LONG          ,*LONG[]          ,*LONG[]                                                                )   !Find first solution implemented with Clarion code
+    END
+    MODULE('KnapC.c')
+      FindInvoicesC        (SHORT         ,SHORT            ,LONG              ,SHORT             ,LONG),RAW,NAME('_FindInvoicesC')
+    END
+    MODULE('KnapAsm.a')
+      FindInvoicesAssembler(SHORT         ,SHORT            ,SHORT             ,SHORT             ,SHORT),NAME('asmknapsack')
+     !RunProcess           (SHORT         ,SHORT            ,SHORT             ,SHORT             ,SHORT),NAME('processdispatcher')
+    END
+    MODULE('KnapMod.mod')
+      FindInvoicesModula2  (SHORT         ,LONG             ,SHORT             ,LONG              ),NAME('KnapMod$modknapsack')
+    END
+    Main
+  END
+
+  CODE
+
+  Main
+
+Main                 PROCEDURE
+
+MyArray              LONG,DIM(8)                           !
+MyResult             CSTRING(100)                          !
+
+ResultSt             CSTRING(500)
+
+PaymentAmount        EQUATE(20)
+ThisArray            LONG,DIM(PaymentAmount*2+2)
+ThisArrayS           STRING(PaymentAmount*8+8),OVER(ThisArray) !keep in sync with ThisArray size
+
+nRows                LONG
+nTarget              LONG
+HighIndex            LONG
+LowIndex             LONG
+
+Zero                 LONG
+ThisArrayBaseAddr    LONG
+ThisArrayCell        LONG
+
+CellSize             EQUATE(4)
+
+  CODE
+
+  ResultSt       = ''
+  nRows          = 8  !array length:keep this value equal o less the size of MyArray
+  nTarget        = MAXIMUM(ThisArray,1)/2-1 !manage this value on PaymentAmount:ThisArray&ThisArrayS definition
+
+  myArray[1]     = 7  !invoices' values
+  myArray[2]     = 1
+  myArray[3]     = 5
+  myArray[4]     = 3
+  myArray[5]     = 8
+  myArray[6]     = 2
+
+  ThisArrayBaseAddr     = ADDRESS(ThisArray)
+
+  MyResult = ''
+  LOOP LowIndex = 1 TO nRows
+    IF MyArray[LowIndex]
+      IF MyResult
+        MyResult = MyResult & ',' & MyArray[LowIndex]
+      ELSE
+        MyResult =                  MyArray[LowIndex]
+      END
+    END
+  END
+  ResultSt = 'Find first solution to knapsack 0-1 for ' & MyResult & ' with target sum ' & nTarget & '<13,10>'
+  DO PrepareArray
+ !RunProcess(ADDRESS(FindInvoicesClarion),nTarget*2+2,ADDRESS(ThisArray),nRows,ADDRESS(myArray))
+  FindInvoicesClarion(0,ThisArray,myArray)
+  DO GetResult
+  ResultSt = ResultSt & 'FindInvoicesClarion: '   & MyResult & '<13,10>'
+
+  DO PrepareArray
+  FindInvoicesC        (0,nTarget,ADDRESS(ThisArray),nRows*2,ADDRESS(myArray))
+  IF (nTarget%2=0 AND BAND(ThisArray[ nTarget   /2+1],    0FFFFH) <>0FFFFH) |
+  OR (nTarget%2=1 AND BAND(ThisArray[(nTarget-1)/2+1],0FFFF0000H) <>0FFFF0000H)
+    LOOP lowindex = MAXIMUM(thisArray,1)/2 TO 1 BY -1
+      thisArray[lowindex*2  ] = BSHIFT(BAND(thisArray[lowindex],0FFFF0000H),-16)
+      thisArray[lowindex*2-1] =        BAND(thisArray[lowindex],0FFFFH)
+    END
+  END
+  DO GetResult
+  ResultSt = ResultSt & 'FindInvoicesC: '         & MyResult & '<13,10>'
+
+  DO PrepareArray
+  FindInvoicesAssembler(0,nTarget,ADDRESS(ThisArrayS),nRows,ADDRESS(myArray))
+  IF ThisArray[nTarget+1] <> -1
+    LOOP lowindex = 1 TO MAXIMUM(thisArray,1)
+      thisArray[lowindex] = BAND(thisArray[lowindex],0FFFFH)
+    END
+  END
+  DO GetResult
+  ResultSt = ResultSt & 'FindInvoicesAssembler: ' & MyResult & '<13,10>'
+
+  !MESSAGE('Press OK') !release version needed this for some init previous to call Modula-2
+  DO PrepareArray
+  lowindex = 0
+  FindInvoicesModula2(nTarget*8+8    ,ADDRESS(ThisArray),nRows*CellSize,ADDRESS(myArray)) !,nTarget,nRows)
+  DO GetResult
+  ResultSt = ResultSt & 'FindInvoicesModula2: ' & MyResult & '<13,10>'
+
+  TYPE(ResultSt)
+
+PrepareArray ROUTINE
+  CLEAR(ThisArrayS,1)
+  ThisArray[1] = 0
+
+GetResult ROUTINE
+         MyResult = ''
+         if ThisArray[nTarget+1] <> -1
+           lowIndex            = ntarget
+           LOOP while lowIndex>0
+             highIndex         = lowIndex
+             lowIndex          = ThisArray[nTarget+lowIndex+2]
+             IF MyResult
+               MyResult        = (highIndex-lowIndex) & ',' & MyResult
+             ELSE
+               MyResult        = (highIndex-lowIndex)
+             END
+           END
+         END

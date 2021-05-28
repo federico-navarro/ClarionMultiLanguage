@@ -1,0 +1,11 @@
+-- KnapLite
+#noedit
+#system win32
+#model clarion lib
+#pragma debug(vid=>full)
+#compile "KnapLite.clw"
+#compile "KnapCla.clw"
+#compile "KnapAsm.a"
+#compile "KnapC.c"
+#compile "KnapMod.mod"
+#link "KnapLite.exe"
