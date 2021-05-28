@@ -1,0 +1,37 @@
+KnapSack project for testing and benchmarking knapsack algorithms with different languages (Clarion, C, Assembler, Modula-2) 
+
+2017-08-09 Version 0 
+-Original idea and approaches discussed on Clarion 10 newsgroup (news.softvelocity.com) on Thread "Algorithm Challenge" started by Ray Rippey (there is a Sum up on 2017-08-23)
+
+2017-08-25 Version 1  by Andrej Kozelj
+ -files.7z providing sln app and empty dct with the application frame menu
+ -Sv. C version of the algorithm with unique parameter prototype
+ -hand coded array[8] test case on "Click Me" window
+
+2017-09-06 Version 2  by Federico Navarro
+ -Clarion and Sv.Assembler version of the algorithm
+ -minimal tweaks to the Sv.C version: inform Invoices selected on last row of InvoicesArray
+ -another Sv.C version using allocated AmountsMatrix on Clarion side
+ -some basic output to debug piped through a common Clarion procedure
+ -unified prototypes for unified calling by Address to different algorithms (which shares the same Clarion calling convention)
+ -adapted the "Click me" window test case on FindInWindow procedure to use the new prototype and to also call new algorithms added
+ -new user interface "Knapsack Console" with files, editable data stored for repeatable and shareable dynamic tests, which backups can be made for different test cases or deleted to start from scratch, also the contents can be exported to CSV with Topscan
+ -Browse/Form of Invoices
+ -parameterized (Random/Incrementing/Decrementing, From, To, Count) Invoices generator for easy getting large data sets
+ -Invoices reordering option with Random / Ascending / Descending methods and Delete All option
+ -progress bar indicator for most task except the internal loops execution of the algorithms to not alter their process time
+ -Knapsacks and Selections files for storing parameters used, results and statistics data, like Min Max Avg of Amounts in total Invoices and of Amounts and IDs in Selected Invoices, Start date/time and elapsed times on initialization, process, and presentations stages
+ -Invoices’ matcher to link Invoices selected on each algorithm
+ -invocator of repeated tests to automatically run n times each algorithm in three different orders: collated, in cycles, and random, to reach more precision and veracity on the statistic results
+ -implemented the new alternative memory allocator for clarion zdfast by Dave Nichols (Assembler version) but commented out as it seemed not improving this kind of allocation (big and by once on one unique thread)
+
+2021-04-14 Version 2.1  by Federico Navarro
+ -Modula-2 version of the algorithm (callable from Knapsack Console and FindInWindow)
+
+2021-05-26 Version 2.2  by Federico Navarro
+ -added more Clarion algorithms: Reference assignments (existing), using Peek & Poke, using 1d and 2d arrays and using local arrays
+ -moved parameter positions for standarization, ie array size previous to its address, exception is targetSum which is half minus one the size
+ -change disposition of thisArray non interleaving Sums and Results for up to 40% faster processing
+
+2021-05-28 Version 2.3  by Federico Navarro
+ -resimplified app design, deleted the "Click me" window, the commented code with previous versions and the extra algorithms, left only the 4 of knaplite project

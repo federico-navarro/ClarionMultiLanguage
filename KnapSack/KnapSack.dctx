@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary Name="KnapSack" Version="1" StructureChecked="1" DctxFormat="4">
+	<DictionaryVersion Version="1" Description="Initial version"/>
+	<Table Guid="{f598a573-79da-40d1-b808-eba2ed4da734}" Name="Invoices" Description="Invoices" Prefix="Inv" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:03:06PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:08:28PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{01e9fb06-649f-498f-ae1a-06f1291163f5}" Name="InvoiceID" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Invoice ID:" ReportHeading="Invoice ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Inv:InvoiceID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice ID:&apos;),USE(?Inv:InvoiceID:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Inv:InvoiceID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:03:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:03:55PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{b1a1e4d8-4797-458a-b45c-915156809651}" Name="Amount" DataType="LONG" Size="4" ScreenPicture="@n10" ScreenPrompt="Amount:" ReportHeading="Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n10),USE(Inv:Amount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Amount:&apos;),USE(?Inv:Amount:Prompt)"/>
+				<Line Text=" ENTRY(@n10),USE(Inv:Amount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:03:58PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:07:29PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{6ea386a5-1df3-4708-b07e-59f4afbbdbce}" Order="1" Name="KeyID" Description="By ID" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true">
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:08:21PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:08:21PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{3b96e025-af3f-46e4-92fa-86f28a374a3e}" FieldId="{01e9fb06-649f-498f-ae1a-06f1291163f5}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:08:21PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:08:21PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{fd8ef95b-6cfe-4e68-bb40-1bc1c95c1b74}" Name="Knapsacks" Prefix="Kna" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:09:04PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 SEP 2017" ModifiedTime="12:30:35AM" ModifiedVersionNumber="1"/>
+		<Field Guid="{661905d5-63e6-414f-9bc2-bd99fc2fc933}" Name="KnapsackID" DataType="LONG" Size="4" ScreenPicture="@n4" ScreenPrompt="Knapsack ID:" ReportHeading="Knapsack ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n4),USE(Kna:KnapsackID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Knapsack ID:&apos;),USE(?Kna:KnapsackID:Prompt)"/>
+				<Line Text=" ENTRY(@n4),USE(Kna:KnapsackID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:09:37PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:09:37PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{fde135a6-c870-4028-9f19-fa22c1098d2e}" Name="StartDate" DataType="LONG" Size="4" ScreenPicture="@D10" ScreenPrompt="Start Date:" ReportHeading="Start Date" Justification="RIGHT" Offset="1" ReportControl=" STRING(@D10),USE(Kna:StartDate),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Start Date:&apos;),USE(?Kna:StartDate:Prompt)"/>
+				<Line Text=" ENTRY(@D10),USE(Kna:StartDate),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:10:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:10:56PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{bdf6ccb3-7ba6-4df4-be66-82e012ba60e0}" Name="StartTime" DataType="LONG" Size="4" ScreenPicture="@t4" ScreenPrompt="Start Time:" ReportHeading="Start Time" Justification="RIGHT" Offset="1" ReportControl=" STRING(@t4),USE(Kna:StartTime),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Start Time:&apos;),USE(?Kna:StartTime:Prompt)"/>
+				<Line Text=" ENTRY(@t4),USE(Kna:StartTime),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:11:08PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:11:08PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{86a06f70-6c42-4664-8efe-e225fca4654c}" Name="PaymentAmount" DataType="LONG" Size="4" ScreenPicture="@n11" ScreenPrompt="Payment Amount:" ReportHeading="Payment Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n11),USE(Kna:PaymentAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Payment Amount:&apos;),USE(?Kna:PaymentAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n11),USE(Kna:PaymentAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:13:41PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:13:41PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{85ca53ce-4693-4a9a-946a-d2244285ae3e}" Name="InvoicesCount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Invoices Count:" ReportHeading="Invoices Count" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:InvoicesCount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoices Count:&apos;),USE(?Kna:InvoicesCount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:InvoicesCount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:14:51PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:14:51PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{c660c2e2-99af-4cac-89d3-12f19b9c16b0}" Name="MinAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Min Amount:" ReportHeading="Min Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:MinAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Min Amount:&apos;),USE(?Kna:MinAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:MinAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:14:51PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:00:00PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{fc6f060a-de59-41cc-a1cd-c70fb435e6d0}" Name="AvgAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Avg Amount:" ReportHeading="Avg Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:AvgAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Avg Amount:&apos;),USE(?Kna:AvgAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:AvgAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:16:30PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:00:11PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d9d4d87a-65a5-4530-8559-9484136d5e8f}" Name="MaxAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Max Amount:" ReportHeading="Max Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:MaxAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Max Amount:&apos;),USE(?Kna:MaxAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:MaxAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:16:48PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:00:20PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{3f11408e-d136-46d5-a5f5-35a81a8bcc3e}" Name="BrokenLinks" DataType="LONG" Size="4" ScreenPicture="@N~*~1B" ScreenPrompt="Broken Links:" ReportHeading="Broken Links" Justification="RIGHT" Offset="1" ReportControl=" STRING(@N~*~1B),USE(Kna:BrokenLinks),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Broken Links:&apos;),USE(?Kna:BrokenLinks:Prompt)"/>
+				<Line Text=" ENTRY(@N~*~1B),USE(Kna:BrokenLinks),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:20:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:20:14PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{e6fe9d6f-9e4d-4806-9688-66ce76089746}" Name="Algorithm" DataType="CSTRING" Size="21" ScreenPicture="@s20" ScreenPrompt="Algorithm:" ReportHeading="Algorithm" ReportControl=" STRING(@s20),USE(Kna:Algorithm)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Algorithm:&apos;),USE(?Kna:Algorithm:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(Kna:Algorithm)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:23:03PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:23:03PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0ef425be-d281-400c-869f-26abadac297c}" Name="Allocation" DataType="CSTRING" Size="21" ScreenPicture="@s20" ScreenPrompt="Allocation:" ReportHeading="Allocation" ReportControl=" STRING(@s20),USE(Kna:Allocation)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Allocation:&apos;),USE(?Kna:Allocation:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(Kna:Allocation)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:23:48PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:23:48PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{60f88a05-0c4c-4d7a-8228-e3946a8960ea}" Name="Implementation" DataType="CSTRING" Size="21" ScreenPicture="@s20" ScreenPrompt="Implementation:" ReportHeading="Implementation" ReportControl=" STRING(@s20),USE(Kna:Implementation)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Implementation:&apos;),USE(?Kna:Implementation:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(Kna:Implementation)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:24:04PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:24:04PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{bfca371b-8535-4ca4-9628-6cf4bc3bfa79}" Name="InitTime" DataType="LONG" Size="4" ScreenPicture="@n10" ScreenPrompt="Init Time:" ReportHeading="Init Time" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n10),USE(Kna:InitTime),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Init Time:&apos;),USE(?Kna:InitTime:Prompt)"/>
+				<Line Text=" ENTRY(@n10),USE(Kna:InitTime),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:26:25PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 SEP 2017" ModifiedTime="12:30:35AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{64402cfa-c990-4919-9992-b60bffa9cdd6}" Name="ProcessTime" DataType="LONG" Size="4" ScreenPicture="@n10" ScreenPrompt="Process Time:" ReportHeading="Process Time" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n10),USE(Kna:ProcessTime),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Process Time:&apos;),USE(?Kna:ProcessTime:Prompt)"/>
+				<Line Text=" ENTRY(@n10),USE(Kna:ProcessTime),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:26:39PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 SEP 2017" ModifiedTime="12:30:14AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{b9b58c8e-76db-4d6d-851f-04c5fd3cf9b3}" Name="PresentTime" DataType="LONG" Size="4" ScreenPicture="@n10" ScreenPrompt="Present Time:" ReportHeading="Present Time" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n10),USE(Kna:PresentTime),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Present Time:&apos;),USE(?Kna:PresentTime:Prompt)"/>
+				<Line Text=" ENTRY(@n10),USE(Kna:PresentTime),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:50:47PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 SEP 2017" ModifiedTime="12:30:27AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{719cb731-b76e-4c33-973a-92761d336c7f}" Name="InvoicesSelected" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Invoices Selected:" ReportHeading="Invoices Selected" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:InvoicesSelected),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoices Selected:&apos;),USE(?Kna:InvoicesSelected:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:InvoicesSelected),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:13:42PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:00:45PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{b4fc76a4-7def-43cc-ab67-f867842d361d}" Name="SelMinInvoiceID" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Min Invoice ID:" ReportHeading="Sel Min Invoice ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelMinInvoiceID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Min Invoice ID:&apos;),USE(?Kna:SelMinInvoiceID:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelMinInvoiceID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:14:51PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:55:52PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{7d6a8d0a-b150-42a0-8396-9589243fe74e}" Name="SelAvgInvoiceID" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Avg Invoice ID:" ReportHeading="Sel Avg Invoice ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelAvgInvoiceID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Avg Invoice ID:&apos;),USE(?Kna:SelAvgInvoiceID:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelAvgInvoiceID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:16:30PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:55:59PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{dffb2aaa-5ab7-4db0-a113-06922d5d00f0}" Name="SelMaxInvoiceID" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Max Invoice ID:" ReportHeading="Sel Max Invoice ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelMaxInvoiceID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Max Invoice ID:&apos;),USE(?Kna:SelMaxInvoiceID:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelMaxInvoiceID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:17:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:17:56PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{29e8e9b8-3d3f-4ce5-b7b7-c98d430af16c}" Name="SelMinAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Min Amount:" ReportHeading="Sel Min Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelMinAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Min Amount:&apos;),USE(?Kna:SelMinAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelMinAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:14:51PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:58:48PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{88331eb4-691b-474e-9008-411f8a09f32d}" Name="SelAvgAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Avg Amount:" ReportHeading="Sel Avg Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelAvgAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Avg Amount:&apos;),USE(?Kna:SelAvgAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelAvgAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:16:30PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:59:02PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{7cf4e15d-c8b8-47f9-b710-cc75c2df1913}" Name="SelMaxAmount" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Sel Max Amount:" ReportHeading="Sel Max Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Kna:SelMaxAmount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Sel Max Amount:&apos;),USE(?Kna:SelMaxAmount:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Kna:SelMaxAmount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:16:48PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:59:13PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6bef2f9c-4d3b-4232-9b86-bccbf424cd14}" Name="Notes" DataType="CSTRING" Size="61" ScreenPicture="@s60" ScreenPrompt="Notes:" ReportHeading="Notes" ReportControl=" STRING(@s60),USE(Kna:Notes)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Notes:&apos;),USE(?Kna:Notes:Prompt)"/>
+				<Line Text=" ENTRY(@s60),USE(Kna:Notes)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:53:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:53:55PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d9c1dd9f-8a77-4024-a50e-b03a32470bab}" Name="ProcessorSpecs" DataType="CSTRING" Size="101" ScreenPicture="@s100" ScreenPrompt="Processor Specs:" ReportHeading="Processor Specs" ReportControl=" STRING(@s100),USE(Kna:ProcessorSpecs)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Processor Specs:&apos;),USE(?Kna:ProcessorSpecs:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Kna:ProcessorSpecs)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:54:15PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 3 SEP 2017" ModifiedTime=" 9:05:29AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{b9a5643e-3a9c-491e-8606-1d0a0d7c2fbb}" Order="1" Name="KeyID" Description="By ID" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true">
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:55:36PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:55:36PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{43c6cb1b-6811-491b-afa7-30e14c2ff631}" FieldId="{661905d5-63e6-414f-9bc2-bd99fc2fc933}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 4:55:36PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 4:55:36PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{ac2aa3fa-db2f-419d-b450-1a75e3bb0e6e}" Name="Selections" Prefix="Sel" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:02:29PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:08:10PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{e8626a0c-7b4f-4d90-afe8-4980fb657bd8}" Name="KnapsackID" DerivedFrom="Kna:KnapsackID" DataType="LONG" Size="4" ScreenPicture="@n4" ScreenPrompt="Knapsack ID:" ReportHeading="Knapsack ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n4),USE(Sel:KnapsackID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Knapsack ID:&apos;),USE(?Sel:KnapsackID:Prompt)"/>
+				<Line Text=" ENTRY(@n4),USE(Sel:KnapsackID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:02:52PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:02:52PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{afb45de8-13e6-4990-b6d1-e21118720a0d}" Name="SelectionOrder" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Selection Order:" ReportHeading="Selection Order" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Sel:SelectionOrder),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Selection Order:&apos;),USE(?Sel:SelectionOrder:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Sel:SelectionOrder),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:03:08PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:03:08PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{9c9f7b54-71e2-48ae-a9f1-03d6cb4e482a}" Name="Amount" DataType="LONG" Size="4" ScreenPicture="@n11" ScreenPrompt="Amount:" ReportHeading="Amount" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n11),USE(Sel:Amount),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Amount:&apos;),USE(?Sel:Amount:Prompt)"/>
+				<Line Text=" ENTRY(@n11),USE(Sel:Amount),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:03:37PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:03:37PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{634dc2ba-0226-4581-82df-a381966963ad}" Name="InvoiceIDMatched" DataType="LONG" Size="4" ScreenPicture="@n9" ScreenPrompt="Invoice ID Matched:" ReportHeading="Invoice ID Matched" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n9),USE(Sel:InvoiceIDMatched),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice ID Matched:&apos;),USE(?Sel:InvoiceIDMatched:Prompt)"/>
+				<Line Text=" ENTRY(@n9),USE(Sel:InvoiceIDMatched),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:05:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:05:53PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{c7d89057-9f39-4ce7-bf12-1c626304b864}" Order="1" Name="KeyKnaID" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true">
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:07:06PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:07:06PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{59da574a-e0b7-4fce-9cb0-0e544bf52cd4}" FieldId="{e8626a0c-7b4f-4d90-afe8-4980fb657bd8}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:07:06PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:07:06PM" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{6423396b-f226-45b2-a163-93dac886cefe}" FieldId="{afb45de8-13e6-4990-b6d1-e21118720a0d}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:07:06PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:07:06PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{8d7c58b6-2b54-4f6b-81d4-f21daaaef677}" Order="2" Name="KeyInvID" KeyType="KEY" Unique="true">
+			<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:08:10PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:08:10PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{fbfdc385-7709-4ae4-bb6e-5c32c32180fa}" FieldId="{634dc2ba-0226-4581-82df-a381966963ad}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:08:10PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:08:10PM" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{1de8f2f6-abcb-4c7e-a105-8cc7da65e0d8}" FieldId="{e8626a0c-7b4f-4d90-afe8-4980fb657bd8}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="29 AUG 2017" CreateTime=" 5:08:10PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="29 AUG 2017" ModifiedTime=" 5:08:10PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Relation Guid="{540aabba-1b3a-4437-9270-e611747aefe8}" PrimaryTable="{f598a573-79da-40d1-b808-eba2ed4da734}" ForeignTable="{ac2aa3fa-db2f-419d-b450-1a75e3bb0e6e}" PrimaryKey="{6ea386a5-1df3-4708-b07e-59f4afbbdbce}" ForeignKey="{8d7c58b6-2b54-4f6b-81d4-f21daaaef677}">
+		<Audit CreateUser="Administrator" CreateDate="30 AUG 2017" CreateTime=" 1:32:19PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="30 AUG 2017" ModifiedTime=" 1:32:19PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{aef4bcf8-b940-43b6-bfa4-56c688845346}" Field="{01e9fb06-649f-498f-ae1a-06f1291163f5}"/>
+		<PrimaryMapping Guid="{db81da12-b8cc-423e-bff6-7a77ee031617}" Field="{634dc2ba-0226-4581-82df-a381966963ad}"/>
+	</Relation>
+	<Relation Guid="{58657646-333c-4fa9-99e6-3f976a73b172}" PrimaryTable="{fd8ef95b-6cfe-4e68-bb40-1bc1c95c1b74}" ForeignTable="{ac2aa3fa-db2f-419d-b450-1a75e3bb0e6e}" PrimaryKey="{b9a5643e-3a9c-491e-8606-1d0a0d7c2fbb}" ForeignKey="{c7d89057-9f39-4ce7-bf12-1c626304b864}">
+		<Audit CreateUser="Administrator" CreateDate="30 AUG 2017" CreateTime=" 1:32:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="30 AUG 2017" ModifiedTime=" 1:32:57PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{1ab98d4b-c38b-48c3-bc11-a1d93f8d1d66}" Field="{661905d5-63e6-414f-9bc2-bd99fc2fc933}"/>
+		<PrimaryMapping Guid="{ff895a2d-6263-4686-9458-68872389891f}" Field="{e8626a0c-7b4f-4d90-afe8-4980fb657bd8}"/>
+	</Relation>
+</Dictionary>
+

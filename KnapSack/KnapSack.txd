@@ -1,0 +1,267 @@
+[VERSION2]
+[DICTIONARY]
+VERSION '1'
+
+
+
+[FILES]
+
+Invoices FILE,DRIVER('TOPSPEED'),PRE(Inv),CREATE,THREAD  !Invoices
+!!>USAGE(File)
+KeyID KEY(Inv:InvoiceID),NOCASE,PRIMARY  !By ID
+!!>AUTO
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Invoice ID:'),USE(?Inv:InvoiceID:Prompt)
+! ENTRY(@n9),USE(Inv:InvoiceID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Inv:InvoiceID),RIGHT(1)
+InvoiceID LONG
+!!>PROMPT('Invoice ID:'),HEADER('Invoice ID'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Amount:'),USE(?Inv:Amount:Prompt)
+! ENTRY(@n10),USE(Inv:Amount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n10),USE(Inv:Amount),RIGHT(1)
+Amount LONG
+!!>PROMPT('Amount:'),HEADER('Amount'),PICTURE(@n10),JUSTIFY(RIGHT,1)
+                         END
+                       END
+
+Knapsacks FILE,DRIVER('TOPSPEED'),PRE(Kna),CREATE,THREAD
+!!>USAGE(File)
+KeyID KEY(Kna:KnapsackID),NOCASE,PRIMARY  !By ID
+!!>AUTO
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Knapsack ID:'),USE(?Kna:KnapsackID:Prompt)
+! ENTRY(@n4),USE(Kna:KnapsackID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n4),USE(Kna:KnapsackID),RIGHT(1)
+KnapsackID LONG
+!!>PROMPT('Knapsack ID:'),HEADER('Knapsack ID'),PICTURE(@n4),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Start Date:'),USE(?Kna:StartDate:Prompt)
+! ENTRY(@D10),USE(Kna:StartDate),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@D10),USE(Kna:StartDate),RIGHT(1)
+StartDate LONG
+!!>PROMPT('Start Date:'),HEADER('Start Date'),PICTURE(@D10),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Start Time:'),USE(?Kna:StartTime:Prompt)
+! ENTRY(@t4),USE(Kna:StartTime),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@t4),USE(Kna:StartTime),RIGHT(1)
+StartTime LONG
+!!>PROMPT('Start Time:'),HEADER('Start Time'),PICTURE(@t4),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Payment Amount:'),USE(?Kna:PaymentAmount:Prompt)
+! ENTRY(@n11),USE(Kna:PaymentAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n11),USE(Kna:PaymentAmount),RIGHT(1)
+PaymentAmount LONG
+!!>PROMPT('Payment Amount:'),HEADER('Payment Amount'),PICTURE(@n11),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Invoices Count:'),USE(?Kna:InvoicesCount:Prompt)
+! ENTRY(@n9),USE(Kna:InvoicesCount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:InvoicesCount),RIGHT(1)
+InvoicesCount LONG
+!!>PROMPT('Invoices Count:'),HEADER('Invoices Count'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Min Amount:'),USE(?Kna:MinAmount:Prompt)
+! ENTRY(@n9),USE(Kna:MinAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:MinAmount),RIGHT(1)
+MinAmount LONG
+!!>PROMPT('Min Amount:'),HEADER('Min Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Avg Amount:'),USE(?Kna:AvgAmount:Prompt)
+! ENTRY(@n9),USE(Kna:AvgAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:AvgAmount),RIGHT(1)
+AvgAmount LONG
+!!>PROMPT('Avg Amount:'),HEADER('Avg Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Max Amount:'),USE(?Kna:MaxAmount:Prompt)
+! ENTRY(@n9),USE(Kna:MaxAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:MaxAmount),RIGHT(1)
+MaxAmount LONG
+!!>PROMPT('Max Amount:'),HEADER('Max Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Broken Links:'),USE(?Kna:BrokenLinks:Prompt)
+! ENTRY(@N~*~1B),USE(Kna:BrokenLinks),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@N~*~1B),USE(Kna:BrokenLinks),RIGHT(1)
+BrokenLinks LONG
+!!>PROMPT('Broken Links:'),HEADER('Broken Links'),PICTURE(@N~*~1B),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Algorithm:'),USE(?Kna:Algorithm:Prompt)
+! ENTRY(@s20),USE(Kna:Algorithm)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Kna:Algorithm)
+Algorithm CSTRING(21)
+!!>PROMPT('Algorithm:'),HEADER('Algorithm'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Allocation:'),USE(?Kna:Allocation:Prompt)
+! ENTRY(@s20),USE(Kna:Allocation)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Kna:Allocation)
+Allocation CSTRING(21)
+!!>PROMPT('Allocation:'),HEADER('Allocation'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Implementation:'),USE(?Kna:Implementation:Prompt)
+! ENTRY(@s20),USE(Kna:Implementation)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Kna:Implementation)
+Implementation CSTRING(21)
+!!>PROMPT('Implementation:'),HEADER('Implementation'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Init Time:'),USE(?Kna:InitTime:Prompt)
+! ENTRY(@n10),USE(Kna:InitTime),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n10),USE(Kna:InitTime),RIGHT(1)
+InitTime LONG
+!!>PROMPT('Init Time:'),HEADER('Init Time'),PICTURE(@n10),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Process Time:'),USE(?Kna:ProcessTime:Prompt)
+! ENTRY(@n10),USE(Kna:ProcessTime),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n10),USE(Kna:ProcessTime),RIGHT(1)
+ProcessTime LONG
+!!>PROMPT('Process Time:'),HEADER('Process Time'),PICTURE(@n10),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Present Time:'),USE(?Kna:PresentTime:Prompt)
+! ENTRY(@n10),USE(Kna:PresentTime),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n10),USE(Kna:PresentTime),RIGHT(1)
+PresentTime LONG
+!!>PROMPT('Present Time:'),HEADER('Present Time'),PICTURE(@n10),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Invoices Selected:'),USE(?Kna:InvoicesSelected:Prompt)
+! ENTRY(@n9),USE(Kna:InvoicesSelected),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:InvoicesSelected),RIGHT(1)
+InvoicesSelected LONG
+!!>PROMPT('Invoices Selected:'),HEADER('Invoices Selected'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Min Invoice ID:'),USE(?Kna:SelMinInvoiceID:Prompt)
+! ENTRY(@n9),USE(Kna:SelMinInvoiceID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelMinInvoiceID),RIGHT(1)
+SelMinInvoiceID LONG
+!!>PROMPT('Sel Min Invoice ID:'),HEADER('Sel Min Invoice ID'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Avg Invoice ID:'),USE(?Kna:SelAvgInvoiceID:Prompt)
+! ENTRY(@n9),USE(Kna:SelAvgInvoiceID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelAvgInvoiceID),RIGHT(1)
+SelAvgInvoiceID LONG
+!!>PROMPT('Sel Avg Invoice ID:'),HEADER('Sel Avg Invoice ID'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Max Invoice ID:'),USE(?Kna:SelMaxInvoiceID:Prompt)
+! ENTRY(@n9),USE(Kna:SelMaxInvoiceID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelMaxInvoiceID),RIGHT(1)
+SelMaxInvoiceID LONG
+!!>PROMPT('Sel Max Invoice ID:'),HEADER('Sel Max Invoice ID'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Min Amount:'),USE(?Kna:SelMinAmount:Prompt)
+! ENTRY(@n9),USE(Kna:SelMinAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelMinAmount),RIGHT(1)
+SelMinAmount LONG
+!!>PROMPT('Sel Min Amount:'),HEADER('Sel Min Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Avg Amount:'),USE(?Kna:SelAvgAmount:Prompt)
+! ENTRY(@n9),USE(Kna:SelAvgAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelAvgAmount),RIGHT(1)
+SelAvgAmount LONG
+!!>PROMPT('Sel Avg Amount:'),HEADER('Sel Avg Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Sel Max Amount:'),USE(?Kna:SelMaxAmount:Prompt)
+! ENTRY(@n9),USE(Kna:SelMaxAmount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Kna:SelMaxAmount),RIGHT(1)
+SelMaxAmount LONG
+!!>PROMPT('Sel Max Amount:'),HEADER('Sel Max Amount'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Notes:'),USE(?Kna:Notes:Prompt)
+! ENTRY(@s60),USE(Kna:Notes)
+[REPORTCONTROLS]
+! STRING(@s60),USE(Kna:Notes)
+Notes CSTRING(61)
+!!>PROMPT('Notes:'),HEADER('Notes'),PICTURE(@s60)
+[SCREENCONTROLS]
+! PROMPT('Processor Specs:'),USE(?Kna:ProcessorSpecs:Prompt)
+! ENTRY(@s100),USE(Kna:ProcessorSpecs)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Kna:ProcessorSpecs)
+ProcessorSpecs CSTRING(101)
+!!>PROMPT('Processor Specs:'),HEADER('Processor Specs'),PICTURE(@s100)
+                         END
+                       END
+
+Selections FILE,DRIVER('TOPSPEED'),PRE(Sel),CREATE,THREAD
+!!>USAGE(File)
+KeyKnaID KEY(Sel:KnapsackID,Sel:SelectionOrder),NOCASE,PRIMARY
+!!>AUTO
+KeyInvID KEY(Sel:InvoiceIDMatched,Sel:KnapsackID),NOCASE
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Knapsack ID:'),USE(?Sel:KnapsackID:Prompt)
+! ENTRY(@n4),USE(Sel:KnapsackID),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n4),USE(Sel:KnapsackID),RIGHT(1)
+KnapsackID LONG
+!!>PROMPT('Knapsack ID:'),HEADER('Knapsack ID'),PICTURE(@n4),JUSTIFY(RIGHT,1),DERIVEDFROM('Kna:KnapsackID')
+[SCREENCONTROLS]
+! PROMPT('Selection Order:'),USE(?Sel:SelectionOrder:Prompt)
+! ENTRY(@n9),USE(Sel:SelectionOrder),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Sel:SelectionOrder),RIGHT(1)
+SelectionOrder LONG
+!!>PROMPT('Selection Order:'),HEADER('Selection Order'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Amount:'),USE(?Sel:Amount:Prompt)
+! ENTRY(@n11),USE(Sel:Amount),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n11),USE(Sel:Amount),RIGHT(1)
+Amount LONG
+!!>PROMPT('Amount:'),HEADER('Amount'),PICTURE(@n11),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Invoice ID Matched:'),USE(?Sel:InvoiceIDMatched:Prompt)
+! ENTRY(@n9),USE(Sel:InvoiceIDMatched),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n9),USE(Sel:InvoiceIDMatched),RIGHT(1)
+InvoiceIDMatched LONG
+!!>PROMPT('Invoice ID Matched:'),HEADER('Invoice ID Matched'),PICTURE(@n9),JUSTIFY(RIGHT,1)
+                         END
+                       END
+[RELATIONS]
+              RELATION,ONE:MANY
+Invoices          FILE(Inv:KeyID)
+Selections          RELATED_FILE(Sel:KeyInvID)
+          FILE_TO_RELATED_KEY
+            FIELD(Inv:InvoiceID,Sel:InvoiceIDMatched)
+            FIELD(NOLINK,Sel:KnapsackID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(Sel:InvoiceIDMatched,Inv:InvoiceID)
+          END
+        END
+
+              RELATION,ONE:MANY
+Knapsacks          FILE(Kna:KeyID)
+Selections          RELATED_FILE(Sel:KeyKnaID)
+          FILE_TO_RELATED_KEY
+            FIELD(Kna:KnapsackID,Sel:KnapsackID)
+            FIELD(NOLINK,Sel:SelectionOrder)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(Sel:KnapsackID,Kna:KnapsackID)
+          END
+        END
+

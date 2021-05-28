@@ -1,0 +1,12 @@
+(*
+    Knapsack Algorithm for Clarion Integrated Modula-2 compiler
+
+    Definition module
+    
+    *)
+
+DEFINITION MODULE KnapMod;
+    
+PROCEDURE modknapsack(VAR thisArray : ARRAY OF INTEGER ; VAR invoiceArray : ARRAY OF INTEGER );
+
+END KnapMod.
