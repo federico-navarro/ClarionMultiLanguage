@@ -44,7 +44,7 @@ Includes KnapLite and provides a user interface to automate tests
 ## Sample outputs
 
 ### KnapSack Console with Lite project values
-![LiteValues](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapSackLiteValues.png?raw=true)
+![LiteValues](https://github.com/federico-navarro/ClarionMultiLanguage/blob/main/Captures/KnapSackLiteValues.png?raw=true)
 
 ### KnapSack Console with large values
-![Large](https://github.com/federico-navarro/ClarionMultiLanguage/blob/master/Captures/KnapSackLarge.png?raw=true)
+![Large](https://github.com/federico-navarro/ClarionMultiLanguage/blob/main/Captures/KnapSackLarge.png?raw=true)
