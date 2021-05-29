@@ -1,3 +1,4 @@
 *.a linguist-language=asm
+*.A linguist-language=asm
 *.cla linguist-language=Clarion
 *.CLA linguist-language=Clarion
