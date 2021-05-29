@@ -1,2 +1,3 @@
 *.a linguist-language=Assembly
 *.cla linguist-language=Clarion
+*.CLA linguist-language=Clarion
